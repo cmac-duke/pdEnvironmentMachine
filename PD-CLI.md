@@ -1,7 +1,7 @@
 Running Pure Data from the CLI
 
 Copy a patch from your mac/pc to your Pi:
-scp ~/Desktop/filename.pd pi@ipAddress:~/Desktop/filename.pd
+scp \~/Desktop/filename.pd pi@ipAddress:\~/Desktop/filename.pd
 
 on your pi (via SSH): 
 sudo apt-get install pure-data

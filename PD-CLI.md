@@ -21,3 +21,11 @@ In /boot/config.txt add the following line:
 **audio_pwm_mode=2**
 
 Before using the audio for the first time, you should run **amixer cset numid=3 1** to ensure that HDMI is not selected as the audio output path. OMXplayer should be forced to use "local" as the sound output route.
+
+
+To configure input, you need a mic: 
+use pd -nogui -listdev to list available devices by number
+use pd -nogui -audioindev “device number" filename.pd & to launch a patch using a specific input
+
+-nogui: runs PD without launching the GUI. You’ll get errors if you try to launch a file without this and you have no display (e.g. ssh)
+&: runs PD in the background, so you can issue other shell commands while a patch is running

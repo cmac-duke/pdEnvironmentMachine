@@ -4,7 +4,7 @@ Copy a patch from your mac/pc to your Pi:
 **scp \~/Desktop/filename.pd pi@ipAddress:\~/Desktop/filename.pd**
 
 on your pi (via SSH): 
-**sudo apt-get install pure-data**
+**sudo apt-get install puredata**
 
 Follow (replacing “nicorette.pd” with your patch name):
 https://guitarextended.wordpress.com/2012/08/28/running-pd-on-a-headless-raspberry-pi/

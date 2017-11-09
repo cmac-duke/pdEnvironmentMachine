@@ -1,0 +1,7 @@
+#N canvas 488 132 386 159 10;
+#X obj 12 48 oscparse;
+#X obj 12 19 netreceive -u -b 12000;
+#X text 153 17 receive osc messages via UDP;
+#X obj 12 75 print oscMessage;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;

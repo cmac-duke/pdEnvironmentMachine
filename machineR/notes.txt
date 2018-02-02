@@ -1,0 +1,59 @@
+Getting a static IP on the PI
+PI Static IP address @ Duke: send OIT help ticket with MAC address (via ifconfig)
+Can’t access a PI on campus from off-campus (firewall)
+Can VNC from on campus (your computer can be on Dukeblue; PI on Dukeopen)
+
+———————————
+
+Use USB Mic with Pd & RPi
+See if the Pi knows the mic is there: arecord -l
+use pd -nogui -listdev to list available devices by number
+use pd -nogui -audioindev “device number" filename.pd & to launch a patch using a specific input
+Boost input/output gain: alsamixer 
+
+————————
+
+Running Pd on a “headless” Raspberry Pi
+
+Install: from your pi: sudo apt-get install puredata
+
+Copy a patch from your mac/pc to your Pi:
+scp ~/Desktop/<filename>.pd pi@<ipAddress>:~/Desktop/<filename>.pd
+
+-nogui: runs PD without launching the GUI. You’ll get errors if you try to launch a file without this and you have no display (e.g. ssh)
+&: runs PD in the background, so you can issue other shell commands while a patch is running
+
+2) Create a /bin folder in your home/pi folder by typing this :
+mkdir ./bin (hit enter)
+
+
+3) Move to this folder by typing : cd ./bin
+
+4) Create a file in this folder named “script_pd” (or whatever you want to call this) : sudo nano script_pd (this opens a blank text file in the nano editor)
+5) In the nano editor, type this script :
+#!/bin/bash
+# This script will start Pd in nogui
+# mode and will open the patch
+# named "nicorette.pd"
+echo "Starting Pd..."
+pd -nogui /home/pi/Desktop/nicorette.pd &
+
+6) Save your script by pressing Ctrl+X, hitting y, and Enter.
+
+7) This script is still nothing but a text file. We need to make it executable by typing this :
+sudo chmod 755 script_pd
+(7-bis) You can check that your script is working by typing “/home/pi/bin/script_pd” and pressing Enter. You should see “Starting Ps…” and your patch should start. You’ll need to reboot your RPi to turn Pd off)
+
+8) Now we need to tell the RPi to launch our script at start-up. To do this we have to edit a file called “rc.local”. Open it in the nano editor with :
+sudo nano /etc/rc.local
+
+9) Add the following line after the first comments (comments start with a #) :
+/home/pi/bin/script_pd
+
+10) Save and quit nano (Ctrl+X, y, Enter). Anything that’s in this rc.local file is executed at start-up. We’ve simply asked to run our script to launch Pd when we start our Raspberry Pi.
+
+11) You can reboot your RPi, and if all went well, it should work. Note that you can still type commands while Pd is running (for instance, you can kill pd by typing “sudo killall pd” and hitting Enter).
+
+
+
+

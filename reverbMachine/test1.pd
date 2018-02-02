@@ -1,0 +1,9 @@
+#N canvas 515 261 450 300 10;
+#X obj 191 83 toneGenerator;
+#X floatatom 228 48 5 0 0 0 - - -, f 5;
+#X obj 194 159 dac~;
+#X floatatom 188 47 5 0 0 0 - - -, f 5;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 1 0 0 1;
+#X connect 3 0 0 0;

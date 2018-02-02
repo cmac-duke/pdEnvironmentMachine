@@ -1,12 +1,4 @@
 #N canvas 521 42 1010 715 12;
-#N canvas 0 22 450 300 (subpatch) 0;
-#X array cos-output 44100 float 0;
-#X coords 0 1.02 44100 -1.02 200 130 1;
-#X restore 724 191 graph;
-#N canvas 0 22 450 300 (subpatch) 0;
-#X array table18 44103 float 0;
-#X coords 0 1.02 44103 -1.02 200 130 1;
-#X restore 721 16 graph;
 #X obj 45 249 hip~ 5;
 #X floatatom 46 43 0 0 0 0 - - -;
 #X text 85 49 <-- frequency (Hz.);
@@ -14,38 +6,15 @@
 #X obj 132 114 * 441;
 #X obj 110 163 +~ 1;
 #X text 171 86 <-- chunk size (100ths of a second);
-#X msg 599 429 bang;
 #X obj 45 139 -~ 0.5;
 #X obj 45 189 cos~;
 #X obj 45 222 *~;
-#X text 736 148 -- 44103 samples ---;
-#X text 727 322 ----- 1 second ------;
 #X obj 46 77 phasor~;
 #X obj 45 164 *~ 0.5;
 #X obj 110 138 *~;
-#X text 28 362 Here we apply an amplitude envelope to protect against
-discontinuities at the loop point. The envelope is just a cosine wave
-from -90 degrees to +90 degrees \, (-pi/2 to pi/2 radians) \, i.e.
-\, the part that is zero or positive in sign. The "cos~" object's input
-is in cycles (units of 2pi radians) so -1/4 to +1/4 addresses the desired
-part of the waveform.;
-#X obj 167 247 tabwrite~ cos-output;
-#X obj 167 223 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
--1;
-#X text 188 220 <-- click to graph envelope;
-#X text 28 476 To see the envelope \, put the phasor on 2 Hz or so
-\, click the "graph" button \, and look at "cos-output." This is multiplied
-by the tabread4~ output so that it doesn't click when the phase wraps
-around.;
-#X text 26 545 It is possible to get much more control over the shape
-of the envelope \, but this will be taken up later.;
 #X obj 110 189 tabread4~ table18;
-#X obj 584 456 tabwrite~ table18;
-#X text 722 435 <-- click here to record to table;
 #X obj 21 10 inlet;
 #X obj 273 40 inlet;
-#X obj 44 328 outlet~;
-#X obj 584 389 piMachine2;
 #X obj 173 296 snapshot~;
 #X floatatom 178 323 0 0 0 0 - - -;
 #X msg 269 283 bang;
@@ -53,27 +22,30 @@ of the envelope \, but this will be taken up later.;
 #X text 312 282 bang -- take one snapshot;
 #X text 328 307 set -- set value (which is reset next DSP block.);
 #X obj 40 289 clip~ -0.5 0.5;
-#X connect 2 0 37 0;
-#X connect 3 0 15 0;
-#X connect 5 0 6 0;
-#X connect 6 0 17 1;
-#X connect 7 0 24 0;
-#X connect 9 0 25 0;
-#X connect 10 0 16 0;
-#X connect 11 0 12 0;
-#X connect 11 0 19 0;
-#X connect 12 0 2 0;
-#X connect 15 0 10 0;
-#X connect 15 0 17 0;
-#X connect 16 0 11 0;
-#X connect 17 0 7 0;
-#X connect 20 0 19 0;
-#X connect 24 0 12 1;
-#X connect 27 0 3 0;
-#X connect 28 0 5 0;
-#X connect 30 0 25 0;
-#X connect 31 0 32 0;
-#X connect 33 0 31 0;
-#X connect 34 0 31 0;
-#X connect 37 0 31 0;
-#X connect 37 0 29 0;
+#X obj 46 413 autopan;
+#X obj 44 343 limiter~;
+#X obj 41 444 throw~ l_fx;
+#X obj 41 467 throw~ r_fx;
+#X connect 0 0 22 0;
+#X connect 1 0 10 0;
+#X connect 3 0 4 0;
+#X connect 4 0 12 1;
+#X connect 5 0 13 0;
+#X connect 7 0 11 0;
+#X connect 8 0 9 0;
+#X connect 9 0 0 0;
+#X connect 10 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 8 0;
+#X connect 12 0 5 0;
+#X connect 13 0 9 1;
+#X connect 14 0 1 0;
+#X connect 15 0 3 0;
+#X connect 16 0 17 0;
+#X connect 18 0 16 0;
+#X connect 19 0 16 0;
+#X connect 22 0 16 0;
+#X connect 22 0 24 0;
+#X connect 23 0 25 0;
+#X connect 23 1 26 0;
+#X connect 24 0 23 0;

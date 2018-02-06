@@ -54,6 +54,17 @@ sudo nano /etc/rc.local
 
 11) You can reboot your RPi, and if all went well, it should work. Note that you can still type commands while Pd is running (for instance, you can kill pd by typing “sudo killall pd” and hitting Enter).
 
+————
+Install mrpeach on RPi/Pd (for [udpsend~] and [udpreceive~] objects)
+-Use GUI to open Pd (there’s likely a CLI command sequence too)
+-Go to Help > Find externals
+-Search “peach”
+-select the Linux version, choose where to install it
+-In Pd, go to Preferences > Path
+-Add the folder you installed the external to your paths
+
+
+
 
 
 

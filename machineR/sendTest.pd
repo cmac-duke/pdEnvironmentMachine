@@ -1,0 +1,136 @@
+#N canvas 295 30 990 565 10;
+#X obj 36 302 netsend -u;
+#X text 162 405 0 - 9 (high = more feedback);
+#X text 161 428 use floats (1 = normal \, -1 = reverse \, 0 = stop
+\, >1 = fast \, 0.5 = half \, 2 = double \, etc);
+#X text 162 375 0 - 500 (high = steep filter/discrete pitch);
+#X text 161 354 20 - 20000 (range of human hearing);
+#X text 161 333 0 - 1000 (access point in one second unique buffers)
+;
+#X text 22 332 PARAMS 1 thru 4:;
+#X text 22 354 PARAMS 5 thru 8:;
+#X text 22 375 PARAMS 9 thru 12:;
+#X text 22 407 PARAMS 13 thru 16:;
+#X text 22 429 PARAMS 17 thru 22:;
+#X text 22 470 PARAMS 23 thru 28:;
+#X text 163 469 0 - 10000 (looper length ms \; accesses 10-second global
+buffer);
+#X msg 20 240 send \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9 \$10 \$11 \$12
+\$13 \$14 \$15 \$16 \$17 \$18 \$19 \$20 \$21 \$22 \$23 \$24 \$25 \$26
+\$27 \$28 \$29;
+#X text 606 324 PARAM 29: 1 or 0 // turn auto-randomizer on/off;
+#X msg 37 65 0 333 666 999 150 600 2400 9600 5 5 5 5 5 5 5 5 -0.2 -0.2
+-0.2 -0.2 -0.2 -0.2 1500 3000 4500 6000 7500 9000 0;
+#X msg 36 277 connect 10.194.2.204 6726;
+#X msg 26 25 0 250 500 750 1000 2000 3000 400 200 200 200 200 4 4 4
+4 0.5 0.5 0.5 0.5 0.5 0.5 1000 2000 3000 4000 5000 6000 0;
+#X obj 568 73 vsl 8 100 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5600 1;
+#X obj 558 73 vsl 8 100 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3200 1;
+#X obj 612 61 vsl 8 100 20 20000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 7200 1;
+#X obj 579 73 vsl 8 100 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6700 1;
+#X obj 590 73 vsl 8 100 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6600 1;
+#X obj 601 61 vsl 8 100 20 20000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3000 1;
+#X obj 656 73 vsl 8 100 0 500 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5000 1;
+#X obj 623 61 vsl 8 100 20 20000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 7200 1;
+#X obj 634 61 vsl 8 100 20 20000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2100 1;
+#X obj 645 73 vsl 8 100 0 500 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 7100 1;
+#X obj 699 59 vsl 8 100 0 10 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2600 1;
+#X obj 666 73 vsl 8 100 0 500 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6300 1;
+#X obj 677 73 vsl 8 100 0 500 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6000 1;
+#X obj 688 59 vsl 8 100 0 10 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2300 1;
+#X obj 743 73 vsl 8 100 -5 5 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3100 1;
+#X obj 710 59 vsl 8 100 0 10 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3700 1;
+#X obj 721 59 vsl 8 100 0 10 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3100 1;
+#X obj 732 73 vsl 8 100 -5 5 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3200 1;
+#X obj 764 73 vsl 8 100 -5 5 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4400 1;
+#X obj 754 73 vsl 8 100 -5 5 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4200 1;
+#X obj 808 60 vsl 8 100 0 10000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3100 1;
+#X obj 775 73 vsl 8 100 -5 5 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 7500 1;
+#X obj 786 73 vsl 8 100 -5 5 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5900 1;
+#X obj 797 60 vsl 8 100 0 10000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2600 1;
+#X obj 830 60 vsl 8 100 0 10000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2400 1;
+#X obj 819 60 vsl 8 100 0 10000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1600 1;
+#X obj 852 60 vsl 8 100 0 10000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2800 1;
+#X obj 841 60 vsl 8 100 0 10000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2500 1;
+#X obj 863 161 tgl 15 0 empty empty randomizer_on/off 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 558 184 pack f f f f f f f f f f f f f f f f f f f f f f f f
+f f f f f, f 44;
+#X obj 540 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 555 19 manual tuner;
+#X msg 38 108 0 0 0 0 10000 10000 10000 10000 0 0 0 0 0 0 0 0 1 1 1
+1 1 1 10000 10000 10000 10000 10000 10000 0;
+#X text 598 46 freq;
+#X text 557 58 acc;
+#X text 644 57 q;
+#X text 685 44 fdbk;
+#X text 728 57 speed;
+#X text 794 44 length;
+#X msg 39 150 250 500 750 1000 261 622 784 932 30 60 90 120 10 9 9
+10 0.02 0.2 2 -2 -0.2 -0.02 100 120 140 160 180 200 0;
+#X connect 13 0 0 0;
+#X connect 15 0 13 0;
+#X connect 16 0 0 0;
+#X connect 17 0 13 0;
+#X connect 18 0 47 1;
+#X connect 19 0 47 0;
+#X connect 20 0 47 5;
+#X connect 21 0 47 2;
+#X connect 22 0 47 3;
+#X connect 23 0 47 4;
+#X connect 24 0 47 9;
+#X connect 25 0 47 6;
+#X connect 26 0 47 7;
+#X connect 27 0 47 8;
+#X connect 28 0 47 13;
+#X connect 29 0 47 10;
+#X connect 30 0 47 11;
+#X connect 31 0 47 12;
+#X connect 32 0 47 17;
+#X connect 33 0 47 14;
+#X connect 34 0 47 15;
+#X connect 35 0 47 16;
+#X connect 36 0 47 19;
+#X connect 37 0 47 18;
+#X connect 38 0 47 23;
+#X connect 39 0 47 20;
+#X connect 40 0 47 21;
+#X connect 41 0 47 22;
+#X connect 42 0 47 25;
+#X connect 43 0 47 24;
+#X connect 44 0 47 27;
+#X connect 45 0 47 26;
+#X connect 46 0 47 28;
+#X connect 47 0 13 0;
+#X connect 48 0 47 0;
+#X connect 50 0 13 0;
+#X connect 57 0 13 0;
